@@ -1,10 +1,32 @@
-# AutoExpert: Automating 3D LiDAR Annotation from Expert-Crafted Guidelines
+<h1 align="center">
+  AutoExpert: Automating 3D LiDAR Annotation<br>
+  from Expert-Crafted Guidelines
+</h1>
 
-**Accepted by NeurIPS 2026**
+<p align="center">
+  <strong>Accepted by NeurIPS 2026</strong>
+</p>
 
-**Yechi Ma, Wei Hua, Shu Kong**
+<p align="center">
+  <strong>Yechi Ma</strong><sup>1</sup>&nbsp;&nbsp;
+  <strong>Wei Hua</strong><sup>1</sup>&nbsp;&nbsp;
+  <strong>Shu Kong</strong><sup>2,3</sup>
+</p>
 
-[Paper](https://arxiv.org/pdf/2506.02914v3) · [Project page](https://annoguide.github.io/AutoExpert-3D-benchmark/) · [CVPR 2026 Workshop Challenge & Leaderboard](https://huggingface.co/spaces/autoexpert-cvpr2026-workshop/auto3D) · [Challenge dataset](https://huggingface.co/datasets/autoexpert-cvpr2026-workshop/dataset-public)
+<p align="center">
+  <sup>1</sup>Zhejiang University&nbsp;&nbsp;
+  <sup>2</sup>University of Macau&nbsp;&nbsp;
+  <sup>3</sup>IAIBS
+</p>
+
+<p align="center">
+  <a href="https://arxiv.org/pdf/2506.02914v3">Paper</a>&nbsp;·&nbsp;
+  <a href="https://annoguide.github.io/AutoExpert-3D-benchmark/">Project Page</a>&nbsp;·&nbsp;
+  <a href="https://huggingface.co/spaces/autoexpert-cvpr2026-workshop/auto3D">Challenge &amp; Leaderboard</a>&nbsp;·&nbsp;
+  <a href="https://huggingface.co/datasets/autoexpert-cvpr2026-workshop/dataset-public">Dataset</a>
+</p>
+
+---
 
 AutoExpert studies **auto-annotation from expert-crafted guidelines**: learning from textual class definitions and a few labeled RGB examples to annotate LiDAR data with 3D cuboids. The paper introduces two benchmarks, **AutoExpert-nuScenes** and **AutoExpert-PandaSet**, and the **auto3D** method.
 
