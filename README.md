@@ -1,10 +1,10 @@
 # AutoExpert: Automating 3D LiDAR Annotation from Expert-Crafted Guidelines
 
-**Accepted at NeurIPS 2026 · Evaluations and Datasets Track**
+**Accepted by NeurIPS 2026**
 
 **Yechi Ma, Wei Hua, Shu Kong**
 
-[Paper (OpenReview)](https://openreview.net/forum?id=T24nnfn2Jn) · [Project page](https://annoguide.github.io/AutoExpert-3D-benchmark/) · [CVPR 2026 Workshop Challenge & Leaderboard](https://huggingface.co/spaces/autoexpert-cvpr2026-workshop/auto3D) · [Challenge dataset](https://huggingface.co/datasets/autoexpert-cvpr2026-workshop/dataset-public)
+[Paper](https://arxiv.org/pdf/2506.02914v3) · [Project page](https://annoguide.github.io/AutoExpert-3D-benchmark/) · [CVPR 2026 Workshop Challenge & Leaderboard](https://huggingface.co/spaces/autoexpert-cvpr2026-workshop/auto3D) · [Challenge dataset](https://huggingface.co/datasets/autoexpert-cvpr2026-workshop/dataset-public)
 
 AutoExpert studies **auto-annotation from expert-crafted guidelines**: learning from textual class definitions and a few labeled RGB examples to annotate LiDAR data with 3D cuboids. The paper introduces two benchmarks, **AutoExpert-nuScenes** and **AutoExpert-PandaSet**, and the **auto3D** method.
 
@@ -208,8 +208,7 @@ Please use the updated paper title:
   author    = {Ma, Yechi and Hua, Wei and Kong, Shu},
   booktitle = {Advances in Neural Information Processing Systems},
   year      = {2026},
-  note      = {Evaluations and Datasets Track},
-  url       = {https://openreview.net/forum?id=T24nnfn2Jn}
+  url       = {https://arxiv.org/pdf/2506.02914v3}
 }
 ```
 
