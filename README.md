@@ -8,16 +8,15 @@
 </p>
 
 <p align="center">
-  <strong>Yechi Ma</strong><sup>1,2</sup>&nbsp;&nbsp;
-  <strong>Wei Hua</strong><sup>1,2</sup>&nbsp;&nbsp;
-  <strong>Shu Kong</strong><sup>3,4</sup>
+  <strong>Yechi Ma</strong><sup>1</sup>&nbsp;&nbsp;
+  <strong>Wei Hua</strong><sup>1</sup>&nbsp;&nbsp;
+  <strong>Shu Kong</strong><sup>2,3</sup>
 </p>
 
 <p align="center">
   <sup>1</sup>Zhejiang University&nbsp;&nbsp;
-  <sup>2</sup>Zhejiang Lab&nbsp;&nbsp;
-  <sup>3</sup>University of Macau<br>
-  <sup>4</sup>Institute of Artificial Intelligence and Brain Sciences
+  <sup>2</sup>University of Macau&nbsp;&nbsp;
+  <sup>3</sup>IAIBS
 </p>
 
 <p align="center">
