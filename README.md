@@ -8,20 +8,20 @@
 </p>
 
 <p align="center">
-  <strong>Yechi Ma</strong><sup>1</sup>&nbsp;&nbsp;
-  <strong>Wei Hua</strong><sup>1</sup>&nbsp;&nbsp;
-  <strong>Shu Kong</strong><sup>2,3</sup>
+  <strong>Yechi Ma</strong><sup>1,2</sup>&nbsp;&nbsp;
+  <strong>Wei Hua</strong><sup>1,2</sup>&nbsp;&nbsp;
+  <strong>Shu Kong</strong><sup>3,4</sup>
 </p>
 
 <p align="center">
   <sup>1</sup>Zhejiang University&nbsp;&nbsp;
-  <sup>2</sup>University of Macau&nbsp;&nbsp;
-  <sup>3</sup>IAIBS
+  <sup>2</sup>Zhejiang Lab&nbsp;&nbsp;
+  <sup>3</sup>University of Macau<br>
+  <sup>4</sup>Institute of Artificial Intelligence and Brain Sciences
 </p>
 
 <p align="center">
-  <a href="https://arxiv.org/pdf/2506.02914v3">Paper</a>&nbsp;·&nbsp;
-  <a href="https://annoguide.github.io/AutoExpert-3D-benchmark/">Project Page</a>&nbsp;·&nbsp;
+  <a href="https://arxiv.org/pdf/2506.02914">Paper</a>&nbsp;·&nbsp;
   <a href="https://huggingface.co/spaces/autoexpert-cvpr2026-workshop/auto3D">Challenge &amp; Leaderboard</a>&nbsp;·&nbsp;
   <a href="https://huggingface.co/datasets/autoexpert-cvpr2026-workshop/dataset-public">Dataset</a>
 </p>
@@ -230,7 +230,7 @@ Please use the updated paper title:
   author    = {Ma, Yechi and Hua, Wei and Kong, Shu},
   booktitle = {Advances in Neural Information Processing Systems},
   year      = {2026},
-  url       = {https://arxiv.org/pdf/2506.02914v3}
+  url       = {https://arxiv.org/abs/2506.02914}
 }
 ```
 
