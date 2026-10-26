@@ -21,6 +21,7 @@
 
 <p align="center">
   <a href="https://arxiv.org/pdf/2506.02914">Paper</a>&nbsp;·&nbsp;
+  <a href="https://cc50121.github.io/AutoExpert-3D-benchmark/">Project Page</a>&nbsp;·&nbsp;
   <a href="https://huggingface.co/spaces/autoexpert-cvpr2026-workshop/auto3D">Challenge &amp; Leaderboard</a>&nbsp;·&nbsp;
   <a href="https://huggingface.co/datasets/autoexpert-cvpr2026-workshop/dataset-public">Dataset</a>
 </p>
