@@ -1,9 +1,11 @@
-# AutoExpert: Automating 3D LiDAR Annotation from Expert-Crafted Guidelines
+# AutoExpert project page
 
-**Accepted by NeurIPS 2026**
+AutoExpert: Automating 3D LiDAR Annotation from Expert-Crafted Guidelines.
 
-Yechi Ma, Wei Hua, Shu Kong
+Accepted by NeurIPS 2026.
 
-This branch contains the project-page sources. For the current paper description, AutoExpert-nuScenes and corrected AutoExpert-PandaSet results, challenge leaderboard, installation instructions, and citation, see the [main README](https://github.com/cc50121/AutoExpert-3D-benchmark/blob/main/README.md).
+- Project page: https://cc50121.github.io/AutoExpert-3D-benchmark/
+- Code and benchmark: https://github.com/cc50121/AutoExpert-3D-benchmark
+- Paper: https://arxiv.org/abs/2506.02914
 
-[Paper](https://arxiv.org/pdf/2506.02914v3) · [Code](https://github.com/cc50121/AutoExpert-3D-benchmark) · [Challenge and leaderboard](https://huggingface.co/spaces/autoexpert-cvpr2026-workshop/auto3D)
+This branch serves the project page through GitHub Pages. The page content and figures are aligned with arXiv v5 (October 22, 2026). Author affiliations follow that published version.

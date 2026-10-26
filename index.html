@@ -1,351 +1,76 @@
-<!DOCTYPE html>
-<html>
-
+<!doctype html>
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <!-- Meta tags for social media banners, these should be filled in appropriately as they are your "business card" -->
-  <!-- Replace the content tag with appropriate information -->
-  <meta name="description" content="">
-  <meta property="og:title" content="AutoExpert: Automating 3D LiDAR Annotation from Expert-Crafted Guidelines" />
-  <meta property="og:description" content="" />
-  <meta property="og:url" content="" />
-  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X630-->
-  <meta property="og:image" content="static/images/twitter-teaser-tails.png" />
-  <meta property="og:image:width" content="1200" />
-  <meta property="og:image:height" content="630" />
-
-
-  <meta name="twitter:title" content="AutoExpert: Automating 3D LiDAR Annotation from Expert-Crafted Guidelines">
-  <meta name="twitter:description" content="">
-  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X600-->
-  <meta name="twitter:image" content="static/images/twitter-teaser-tails.png">
-  <meta name="twitter:card" content="summary_large_image">
-  <!-- Keywords for your paper to be indexed by-->
-  <meta name="keywords" content="3D Detection, Data Annotation, Few-Shot Learning, Multi-Modal Learning, Foundation Model Adaptation">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-
-  <title>AutoExpert: Automating 3D LiDAR Annotation from Expert-Crafted Guidelines</title>
-  <!-- <link rel="icon" type="image/x-icon" href="static/images/favicon.ico"> -->
-  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
-
-  <link rel="stylesheet" href="static/css/bulma.min.css">
-  <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
-  <link rel="stylesheet" href="static/css/bulma-slider.min.css">
-  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
-  <link rel="stylesheet" href="static/css/index.css">
-
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
-  <script defer src="static/js/fontawesome.all.min.js"></script>
-  <script src="static/js/bulma-carousel.min.js"></script>
-  <script src="static/js/bulma-slider.min.js"></script>
-  <script src="static/js/index.js"></script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AutoExpert: Automating 3D LiDAR Annotation from Expert-Crafted Guidelines</title>
+<meta name="description" content="AutoExpert learns 3D LiDAR annotation from expert-crafted guidelines. NeurIPS 2026. Two benchmarks: AutoExpert-nuScenes and AutoExpert-PandaSet; the auto3D method.">
+<link rel="canonical" href="https://cc50121.github.io/AutoExpert-3D-benchmark/">
+<meta property="og:title" content="AutoExpert: Automating 3D LiDAR Annotation from Expert-Crafted Guidelines">
+<meta property="og:description" content="Accepted by NeurIPS 2026. Expert-crafted guidelines for automated 3D LiDAR annotation.">
+<meta property="og:url" content="https://cc50121.github.io/AutoExpert-3D-benchmark/">
+<meta property="og:image" content="https://cc50121.github.io/AutoExpert-3D-benchmark/static/images/pipeline.webp">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+:root{--ink:#172b42;--muted:#536579;--blue:#205ec7;--line:#dfe6ee;--wash:#f4f7fb}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;color:var(--ink);font:16px/1.7 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:white}a{color:var(--blue);text-underline-offset:3px}a:hover{color:#123c83}a:focus-visible{outline:3px solid #91b7ff;outline-offset:4px}header{padding:68px 24px 36px;text-align:center;max-width:1080px;margin:auto}h1{font-size:clamp(29px,3.7vw,43px);line-height:1.2;letter-spacing:-1.1px;margin:0 auto 22px;max-width:1030px}h1 span{display:block}h2{font-size:29px;line-height:1.3;letter-spacing:-.5px;margin:0 0 22px}h3{font-size:21px;line-height:1.4;margin:28px 0 12px}p{margin:0 0 18px}.venue{color:var(--blue);font-weight:700;margin:0 0 20px}.authors{font-size:20px;margin:0 0 8px}.affiliations{font-size:15px;color:var(--muted);margin:0 auto 26px}.authors sup,.affiliations sup{font-size:11px}.links{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}.button{padding:8px 18px;border:1px solid var(--line);border-radius:24px;text-decoration:none;font-weight:600;font-size:14px;background:white}.button.primary{background:var(--ink);color:white;border-color:var(--ink)}nav{padding:18px 24px;border-block:1px solid var(--line);display:flex;gap:25px;justify-content:center;flex-wrap:wrap}nav a{font-size:14px;text-decoration:none;color:var(--muted)}main{max-width:1000px;margin:auto;padding:0 28px}section{padding:46px 0;border-bottom:1px solid var(--line);scroll-margin-top:20px}.teaser{padding-top:34px}figure{margin:24px 0}img{display:block;width:100%;height:auto;background:white}figcaption{font-size:14px;line-height:1.6;color:var(--muted);margin-top:13px}ul,ol{padding-left:23px}li{margin-bottom:7px}.summary{background:var(--wash);border-radius:12px;padding:20px 24px;margin:24px 0}.summary p:last-child{margin-bottom:0}.table-scroll{overflow-x:auto;margin:16px 0 20px}table{border-collapse:collapse;width:100%;font-size:14px;line-height:1.5;font-variant-numeric:tabular-nums}th,td{padding:10px 13px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}thead th{background:var(--wash);font-weight:650}table td:not(:first-child),table th:not(:first-child){text-align:right}.protocol td:not(:first-child),.protocol th:not(:first-child){text-align:left}.ours{font-weight:700;background:#edf4ff}.note{font-size:14px;color:var(--muted)}.method-list{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.method-list div{background:var(--wash);border-radius:10px;padding:20px}.method-list h3{margin:0 0 10px;font-size:18px}.method-list p{font-size:14px;margin:0}.resources{display:grid;grid-template-columns:1fr 1fr;gap:30px}.resources h3{margin-top:0}pre{padding:22px;background:var(--wash);border:1px solid var(--line);border-radius:8px;overflow-x:auto;font:13px/1.7 ui-monospace,SFMono-Regular,Consolas,monospace}footer{max-width:1000px;margin:auto;padding:30px 28px 42px;color:var(--muted);font-size:13px}@media(max-width:650px){header{padding-top:38px}h1{letter-spacing:-.5px}h1 span{display:inline}main{padding-inline:20px}section{padding:34px 0}h2{font-size:25px}.authors{font-size:18px}.method-list,.resources{grid-template-columns:1fr}nav{gap:12px 22px}.protocol{min-width:600px}th,td{padding:9px 10px}.summary{padding:18px}}
+</style>
 </head>
-
 <body>
-
-
-  <section class="hero">
-    <div class="hero-body">
-      <div class="container is-max-desktop">
-        <div class="columns is-centered">
-          <div class="column has-text-centered">
-            <h1 class="title is-1 publication-title">AutoExpert: Automating 3D LiDAR Annotation from Expert-Crafted Guidelines
-            </h1>
-            <p class="is-size-5"><strong>Accepted by NeurIPS 2026</strong></p>
-            <p class="is-size-5">Yechi Ma, Wei Hua, Shu Kong</p>
-            <p><a href="https://arxiv.org/pdf/2506.02914v3">Paper</a> · <a href="https://github.com/cc50121/AutoExpert-3D-benchmark#results-reported-in-the-paper">Updated benchmark results and challenge leaderboard</a></p>
-
-            <!-- <div class="is-size-5 publication-authors">
-              <span class="author-block"><sup>1</sup>Zhejiang University<br></span>
-              <span class="author-block"><sup>2</sup>University of Macau<br></span>
-            </div> -->
-            <div class="column has-text-centered">
-              <div class="publication-links">
-                <!-- Github link -->
-                <span class="link-block">
-                  <a href="https://github.com/cc50121/AutoExpert-3D-benchmark" target="_blank"
-                    class="external-link button is-normal is-rounded is-dark">
-                    <span class="icon">
-                      <i class="fab fa-github"></i>
-                    </span>
-                    <span>Code</span>
-                  </a>
-                </span>
-                
-                <!-- ArXiv abstract Link -->
-                <!-- <span class="link-block">
-                  <a href="https://github.com/cc50121/AutoExpert-3D-benchmark" target="_blank"
-                    class="external-link button is-normal is-rounded is-dark">
-                    <span class="icon">
-                      <i class="ai ai-arxiv"></i>
-                    </span>
-                    <span>arXiv</span>
-                  </a>
-                </span>                 -->
-              </div>
-            <!-- </div>
-            <h1><strong style="color: red; font-size: x-large;">XXXXXX</strong></h1>
-          </div> -->
-        </div>
-      </div>  
-    </div>
-  </section>
-  <!-- Paper abstract -->
-  <section class="section hero is-light">
-    <div class="container is-max-desktop">
-      <div class="columns is-centered has-text-centered">
-        <div class="column is-four-fifths">
-          <h2 class="title is-3">Abstract</h2>
-          <div class="content has-text-justified">
-            <p style="text-align: justify;">
-              A crucial yet under-appreciated prerequisite in machine learning solutions for real-applications is data annotation: 
-              human annotators are hired to manually label data according to detailed, expert-crafted guidelines. 
-              This is often a laborious, tedious, and costly process. To study methods for facilitating data annotation, 
-              we introduce a new benchmark AnnoGuide: Auto-Annotation from Annotation Guidelines. 
-              It aims to evaluate automated methods for data annotation directly from expert-defined annotation guidelines, 
-              eliminating the need for manual labeling. As a case study, we repurpose the well-established nuScenes dataset, 
-              commonly used in autonomous driving research, which provides comprehensive annotation guidelines for labeling LiDAR point clouds with 3D cuboids across 18 object classes. 
-              hese guidelines include a few visual examples and textual descriptions, but no labeled 3D cuboids in LiDAR data, 
-              making this a novel task of multi-modal few-shot 3D detection without 3D annotations. 
-              The advances of powerful foundation models (FMs) make AnnoGuide especially timely, as FMs offer promising tools to tackle its challenges. 
-              We employ a conceptually straightforward pipeline that (1) utilizes open-source FMs for object detection and segmentation in RGB images, 
-              (2) projects 2D detections into 3D using known camera poses, 
-              and (3) clusters LiDAR points within the frustum of each 2D detection to generate a 3D cuboid. 
-              Starting with a non-learned solution that leverages off-the-shelf FMs, 
-              we progressively refine key components and achieve significant performance improvements, 
-              boosting 3D detection mAP from 12.1 to 21.9! Nevertheless, 
-              our results highlight that AnnoGuide remains an open and challenging problem, 
-              underscoring the urgent need for developing LiDAR-based FMs. 
-              We release our code and models at GitHub: https://annoguide.github.io/annoguide3Dbenchmark
-            </ul>  
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- End paper abstract -->
-
-
-  <section class="section hero is-light2">
-    <div class="container is-max-desktop">
-      <div class="columns is-centered has-text-centered">
-        <div class="column is-four-fifths">
-          <h2 class="title is-3">Problem Formulation and Benchmarking Protocol</h2>
-          <!-- <h2 class="title is-4">Strong Correlation of Concept Frequency and Accuracy</h2> -->
-          <div class="content has-text-justified">
-
-            <div class="item">
-              <!-- Your image here -->
-              <!-- <img src="static/images/imagenet_1k_freq.png" alt="1" style="width: 250px; height: auto; display: block; margin: 0 auto;"/>-->
-              <img src="static/images/annotation_guidelines_v5_00.png" alt="1" style="width: auto; height: auto; display: block; margin: 0 auto;"/> 
-              <p style="text-align: justify; font-size: 16px; line-height: 1.5; margin-top: 10px; color: #333;">
-                Screenshots of annotation guidelines released with the  nuScenes dataset.
-                (a) The guidelines instruct human annotators to label LiDAR points with 3D cuboids for specific object classes.
-                (b) Each object class is defined by a few visual examples and nuanced textual descriptions (ref. the red box) without 3D cuboid annotations. Human annotators must interpret and apply these guidelines to manually generate 3D cuboids.
-                (c) We visualize the 3D annotations in both RGB images and the Bird's-Eye-View (BEV) of the LiDAR point cloud.
-              </p>
-              <!-- <img src="static/images/promptgpt.png" alt="Image illustrating ChatGPT interaction with VLMs"
-                style="width: 850px; height: auto; display: block; margin: 0 auto;"> -->
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section hero is-light2">
-    <div class="container is-max-desktop">
-      <div class="columns is-centered has-text-centered">
-        <div class="column is-four-fifths">
-          <h2 class="title is-3">Methodology: Lifting 2D Detections to 3D</h2>
-          <div class="content has-text-justified">
-            <div class="item">
-              <!-- Your image here -->
-              <!-- <img src="static/images/imagenet_1k_freq.png" alt="1" style="width: 250px; height: auto; display: block; margin: 0 auto;"/>-->
-              <img src="static/images/our_pipeline_v10_00.png" alt="1" style="width: auto; height: auto; display: block; margin: 0 auto;"/> 
-              <p style="text-align: justify; font-size: 16px; line-height: 1.5; margin-top: 10px; color: #333;">
-                We adopt a pipeline to solve AnnoGuide by adapting open-source foundation models (FMs). 
-                Specifically, over the visual examples and textual descriptions that define object classes of interest, we adapt a Vision-Language Model (VLM) and a  Vision Foundation Model (VFM)  for object detection and segmentation. 
-                The adapted FMs produce decent 2D detections on unlabeled RGB frames.
-                With the aligned LiDAR and RGB frames, we lift each 2D detection to 3D, locate corresponding LiDAR points, and generate a 3D cuboid as the 3D detection.
-                We delve into FM adaption and 3D cuboid generation, and improve them in this work.
-              </p>
-              <!-- <img src="static/images/promptgpt.png" alt="Image illustrating ChatGPT interaction with VLMs"
-                style="width: 850px; height: auto; display: block; margin: 0 auto;"> -->
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section hero is-light2">
-    <div class="container is-max-desktop">
-      <div class="columns is-centered has-text-centered">
-        <div class="column is-four-fifths">
-          <h3 class="title is-4">2D Detection by Multi-Modal Few-Shot Finetuning</h3>
-          <div class="content has-text-justified">
-
-            <div class="item">
-              <!-- Your image here -->
-              <!-- <img src="static/images/imagenet_1k_freq.png" alt="1" style="width: 250px; height: auto; display: block; margin: 0 auto;"/>-->
-              <img src="static/images/prompt_refining_v2_00.png" alt="1" style="width: auto; height: auto; display: block; margin: 0 auto;"/> 
-              <p style="text-align: justify; font-size: 16px; line-height: 1.5; margin-top: 10px; color: #333;">
-                For each targeted class name, we use a pretrained VLM (GPT-4o in this work) to find a list of terms that match the textual description and visual examples provided in the annotation guidelines. 
-                We then test each term and its combinations to search the best one that maximizes the zero-shot detection performance of a foundational object detector (GroundingDINO in this work) on the validation set.
-                We use the best term (or term combination) to finetune the foundational detector,
-                yielding notable improved performance.
-              </p>
-              <!-- <img src="static/images/promptgpt.png" alt="Image illustrating ChatGPT interaction with VLMs"
-                style="width: 850px; height: auto; display: block; margin: 0 auto;"> -->
-            </div>
-          </div>
-          <div class="content has-text-justified">
-
-            <div class="item">
-              <!-- Your image here -->
-              <!-- <img src="static/images/imagenet_1k_freq.png" alt="1" style="width: 250px; height: auto; display: block; margin: 0 auto;"/>-->
-              <img src="static/images/Table_1.png" alt="1" style="width: auto; height: auto; display: block; margin: 0 auto;"/> 
-              <p style="text-align: justify; font-size: 16px; line-height: 1.5; margin-top: 10px; color: #333;">
-                Different strategies of finetuning foundational 2D detectors yield different 3D detection performances.
-                For 3D cuboid generation, we use CM3D.
-                Recall that we refine class names using an off-the-shelf VLM.
-                With the GroundingDINO (GD) 2D detector, replacing the original class names (``o-name'') with refined class names (``r-name'') yields better zero-shot detection performance.
-                Importantly, finetuning GD (ft-GD) using r-name performs the best.                
-              </p>
-              <!-- <img src="static/images/promptgpt.png" alt="Image illustrating ChatGPT interaction with VLMs"
-                style="width: 850px; height: auto; display: block; margin: 0 auto;"> -->
-            </div>
-          </div>
-
-
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section hero is-light2">
-    <div class="container is-max-desktop">
-      <div class="columns is-centered has-text-centered">
-        <div class="column is-four-fifths">
-          <h3 class="title is-4">3D Cuboid Generation by Multi-Hypothesis Testing</h3>
-          <div class="content has-text-justified">
-
-            <div class="item">
-              <!-- Your image here -->
-              <!-- <img src="static/images/imagenet_1k_freq.png" alt="1" style="width: 250px; height: auto; display: block; margin: 0 auto;"/>-->
-              <img src="static/images/challenge_3D_grouping_v3_00.png" alt="1" style="width: auto; height: auto; display: block; margin: 0 auto;"/> 
-              <p style="text-align: justify; font-size: 16px; line-height: 1.5; margin-top: 10px; color: #333;">
-                Generating a 3D cuboid based on LiDAR points is challenging as points can be from occlusders and backgrounds.
-                For example, (a) LiDAR points projected on a  bicycle can be from background through wheels;
-                (b) points projected on a car can be from a fence occluding the car;
-                (c-d) points projected on a car can be background through the windows and windshield of the car.    
-              </p>
-              <!-- <img src="static/images/promptgpt.png" alt="Image illustrating ChatGPT interaction with VLMs"
-                style="width: 850px; height: auto; display: block; margin: 0 auto;"> -->
-            </div>
-          </div>
-          <div class="content has-text-justified">
-            <div class="item">
-              <!-- Your image here -->
-              <!-- <img src="static/images/imagenet_1k_freq.png" alt="1" style="width: 250px; height: auto; display: block; margin: 0 auto;"/>-->
-              <img src="static/images/MHT_fitting_v5_00.png" alt="1" style="width: auto; height: auto; display: block; margin: 0 auto;"/> 
-              <p style="text-align: justify; font-size: 16px; line-height: 1.5; margin-top: 10px; color: #333;">
-                We generate a 3D cuboid for the 2D detected object through Multi-Hypothesis Testing (MHT).
-                In the frustum projected from the 2D detection,
-                we locate the LiDAR points that lie in the mask of the 2D detected object (when projected from 3D to 2D image plane).
-                For the recognized car, we use the prior size obtained by prompting GPT-4o to fit the LiDAR points in 3D BEV.
-                We define a list of angular rotations and translation step sizes to measure their point coverage in BEV and IoU on the image plane, and find the best-fitting one that yields the highest point coverage and IoU.
-                Our method outperforms existing ones.
-              </p>
-              <!-- <img src="static/images/promptgpt.png" alt="Image illustrating ChatGPT interaction with VLMs"
-                style="width: 850px; height: auto; display: block; margin: 0 auto;"> -->
-            </div>
-          </div>
-
-          <div class="content has-text-justified">
-            <div class="item">
-              <!-- Your image here -->
-              <!-- <img src="static/images/imagenet_1k_freq.png" alt="1" style="width: 250px; height: auto; display: block; margin: 0 auto;"/>-->
-              <img src="static/images/Table_2.png" alt="1" style="width: auto; height: auto; display: block; margin: 0 auto;"/> 
-              <p style="text-align: justify; font-size: 16px; line-height: 1.5; margin-top: 10px; color: #333;">
-                We compare different 3D cuboid generation methods,
-                including our heuristic baseline, CM3D, 
-                a 3D detector CenterPoint (CP) trained on the Argoverse2 LiDAR data, and our MHT-based method.
-                Surprisingly, the trained 3D detector CP yields poor performance.
-                We believe the reason is the discrepancy between LiDAR models of the nuScenes and Argoverse2 datasets. We compare the specifics of the LiDAR models of the Supplement.
-                Our MHT-based method performs the best.
-              </p>
-              <!-- <img src="static/images/promptgpt.png" alt="Image illustrating ChatGPT interaction with VLMs"
-                style="width: 850px; height: auto; display: block; margin: 0 auto;"> -->
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </div>
-  </section>
-
-
-  <section class="section hero is-light2">
-    <div class="container is-max-desktop">
-      <div class="columns is-centered has-text-centered">
-        <div class="column is-four-fifths">
-          <h2 class="title is-3">More Technical Enhancements</h2>
-          <div class="content has-text-justified">
-
-            <div class="item">
-              <!-- Your image here -->
-              <!-- <img src="static/images/imagenet_1k_freq.png" alt="1" style="width: 250px; height: auto; display: block; margin: 0 auto;"/>-->
-              <img src="static/images/Table_4.png" alt="1" style="width: auto; height: auto; display: block; margin: 0 auto;"/> 
-              <p style="text-align: justify; font-size: 16px; line-height: 1.5; margin-top: 10px; color: #333;">
-                Our proposed techniques improve 3D cuboid generation.
-                The first row shows results of a method that adopts our finetuned GroundingDINO for 2D detection
-                and CM3D~\cite{khurana2024shelf} for 3D cuboid generation.
-                MHT standards for Multi-Hypothesis Testing for 3D cuboid generation;
-                ``SA.'' uses class-aware sweep aggregation;
-                S<sub>3D</sub> incorporates 3D geometric cues to score generated 3D cuboids;
-                ``track'' means using 3D tracks to refine scores of generated cuboids.
-                Results demonstrate the effectiveness of each technique in improving 3D cuboid generation.                
-              </p>
-              <!-- <img src="static/images/promptgpt.png" alt="Image illustrating ChatGPT interaction with VLMs"
-                style="width: 850px; height: auto; display: block; margin: 0 auto;"> -->
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-
-  <!-- Qualitative Results -->
-  <section class="section hero is-light2">
-    <div class="container is-max-desktop">
-      <div class="columns is-centered has-text-centered">
-        <div class="column is-four-fifths">
-          <h2 class="title is-3">Visualizations</h2>
-          <div class="content has-text-justified">
-
-            <div class="item">
-              <!-- Your image here -->
-              <img src="static/images/visual-results-v3_00.png" alt="1" style="width: auto; height: auto; display: block; margin: 0 auto;"/> 
-              <p style="text-align: justify; font-size: 16px; line-height: 1.5; color: #333;">
-                Visualization of detection results on four testing examples.
-                For each example, we display 2D detections, and 3D detections (i.e., the generated 3D cuboids) projected onto the RGB image and the BEV of LiDAR data.
-                Visual results show that our method decently detects objects that are in far field and small in size, which are usually challenging to detect.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- End Qualitative Results -->
-
-
-</body>
-
-</html>
+<header>
+<h1>AutoExpert: Automating 3D LiDAR Annotation <span>from Expert-Crafted Guidelines</span></h1>
+<p class="venue">Accepted by NeurIPS 2026</p>
+<p class="authors">Yechi Ma<sup>1</sup> &nbsp; Wei Hua<sup>1</sup> &nbsp; Shu Kong<sup>2,3</sup></p>
+<p class="affiliations"><sup>1</sup>Zhejiang University &nbsp; <sup>2</sup>University of Macau &nbsp; <sup>3</sup>IAIBS</p>
+<div class="links">
+<a class="button primary" href="https://arxiv.org/pdf/2506.02914">Paper</a>
+<a class="button" href="https://github.com/cc50121/AutoExpert-3D-benchmark">Code</a>
+<a class="button" href="https://huggingface.co/spaces/autoexpert-cvpr2026-workshop/auto3D">Challenge &amp; Leaderboard</a>
+<a class="button" href="https://huggingface.co/datasets/autoexpert-cvpr2026-workshop/dataset-public">Dataset</a>
+</div>
+</header>
+<nav aria-label="Page sections"><a href="#abstract">Abstract</a><a href="#benchmarks">Benchmarks</a><a href="#method">Method</a><a href="#results">Results</a><a href="#challenge">Challenge</a><a href="#resources">Resources</a></nav>
+<main>
+<section class="teaser" aria-label="Pipeline overview">
+<figure><img src="static/images/pipeline.webp" alt="AutoExpert pipeline: adapt foundation models using expert-crafted guidelines, associate 2D detections with LiDAR points, and generate 3D cuboids." fetchpriority="high"><figcaption>Learning from guideline texts and a few labeled RGB examples to annotate LiDAR point clouds with 3D cuboids. The benchmark uses no 3D training annotations.</figcaption></figure>
+<div class="summary"><p><strong>Two benchmarks, one annotation task.</strong> AutoExpert evaluates annotation from authentic expert-crafted guidelines on <strong>18 nuScenes classes</strong> and <strong>25 PandaSet classes</strong>. Our complete method, <strong>auto3D</strong>, achieves <strong>25.4 mAP / 27.2 NDS</strong> on AutoExpert-nuScenes and <strong>18.4 mAP / 27.6 adapted NDS</strong> on our corrected AutoExpert-PandaSet annotations.</p></div>
+</section>
+<section id="abstract"><h2>Abstract</h2><p>The contemporary paradigm of scaling data annotation, crucial for developing machine learning solutions, is to hire ordinary human annotators and instruct them with expert-crafted guidelines to label data. This paradigm is laborious, tedious, and costly, motivating us to study an open problem, auto-annotation with expert-crafted guidelines (dubbed AutoExpert). We develop benchmarks by redesigning the evaluation protocol and re-annotating data with nuScenes and PandaSet, two 3D detection datasets for autonomous driving research that provide expert-crafted annotation guidelines. Their guidelines define 18 and 25 object classes, respectively, using nuanced language descriptions and a few visual examples. Following the guidelines that require using 3D cuboids to label LiDAR data, AutoExpert requires algorithms to learn on few-shot labeled images and texts to perform the task of 3D detection on LiDAR data. Apparently, the challenges of AutoExpert lie in the data-modality and task discrepancy. Nevertheless, public foundation models (FMs) serve as promising tools to tackle these challenges. To address AutoExpert, we adopt a conceptually simple pipeline consisting of three components: (1) 2D object detection and segmentation in RGB images, (2) lifting 2D detections into 3D using known sensor poses, and (3) 3D cuboids generation for the 2D detections. Within this pipeline, we enhance and evaluate a variety of methods such as open-vocabulary detectors, few-shot detectors, and self-supervised learned detectors. We also develop novel techniques, leading to refined components that boost 3D detection mAP from 12.1 to 25.4 on the AutoExpert-nuScenes benchmark.</p></section>
+<section id="benchmarks"><h2>Benchmarks and protocol</h2>
+<p>AutoExpert studies <strong>auto-annotation from expert-crafted guidelines</strong>: algorithms learn textual class definitions and a few federated 2D-labeled RGB examples, then annotate LiDAR data with 3D cuboids. The target classes follow the source annotation guidelines, including rare and nuanced categories.</p>
+<div class="table-scroll"><table class="protocol"><thead><tr><th></th><th>AutoExpert-nuScenes</th><th>AutoExpert-PandaSet</th></tr></thead><tbody>
+<tr><td>Source dataset</td><td>nuScenes</td><td>PandaSet</td></tr><tr><td>Target categories</td><td>18 guideline-defined classes</td><td>25 guideline-defined classes</td></tr>
+<tr><td>Training supervision</td><td>Guideline texts and few-shot, federated 2D annotations</td><td>Guideline texts and few-shot, federated 2D annotations</td></tr>
+<tr><td>Validation</td><td>570 frames from the official training split</td><td>8 re-annotated keyframes</td></tr><tr><td>Test</td><td>6,019 frames from the official validation split</td><td>192 re-annotated keyframes in the paper's split</td></tr>
+<tr><td>Annotation basis</td><td>nuScenes annotations with the AutoExpert protocol</td><td>Our corrected subset: 200 keyframes and 4,695 cuboids in total</td></tr></tbody></table></div>
+<p class="note">The training examples contain 4–8 selected RGB images per class. Each example is labeled only for its target class. No 3D annotations are used for training; validation annotations support model and prompt selection.</p>
+<figure><img src="static/images/guidelines.webp" alt="Examples of authentic nuScenes guidelines with textual class definitions, RGB examples, and corresponding 3D annotations." loading="lazy"><figcaption>Authentic annotation guidelines define classes with language and visual examples, while the annotation task requires drawing 3D boxes in LiDAR data.</figcaption></figure>
+<h3>Correcting PandaSet annotations</h3><p>AutoExpert-PandaSet uses our <strong>manually corrected and re-annotated subset</strong>. The original PandaSet cuboids include misaligned or ghost boxes whose objects are not identifiable in the RGB views. We re-annotate the selected frames with aligned 3D boxes for visually identifiable objects.</p>
+<figure><img src="static/images/pandaset-correction.webp" alt="Comparison of misaligned original PandaSet annotations and our corrected annotations." loading="lazy"><figcaption>Examples of the annotation misalignment that motivated the corrected AutoExpert-PandaSet benchmark. Released examples, validation annotations, and test inputs are documented in the <a href="https://huggingface.co/datasets/autoexpert-cvpr2026-workshop/dataset-public">dataset repository</a>.</figcaption></figure>
+</section>
+<section id="method"><h2>Method: auto3D</h2><p>Our pipeline adapts available foundation models to expert-crafted guidelines and lifts their 2D predictions into 3D. <strong>auto3D</strong> denotes the complete method; <strong>v-MHT</strong> is its VLM-guided cuboid-generation component.</p>
+<div class="method-list"><div><h3>1. Adapt 2D perception</h3><p>Refine class names with a VLM, select prompts on validation data, and finetune GroundingDINO using few-shot RGB examples. SAM provides object masks.</p></div><div><h3>2. Associate 2D with 3D</h3><p>Use camera/LiDAR calibration and sensor poses to associate image detections with LiDAR points in their frustums.</p></div><div><h3>3. Generate and refine cuboids</h3><p>Use instance-specific VLM reasoning and multi-hypothesis testing, followed by sweep aggregation, geometric scoring, and tracking refinement.</p></div></div>
+<h3>Multimodal few-shot finetuning</h3><figure><img src="static/images/few-shot.webp" alt="VLM-generated class descriptions and prompt selection followed by multimodal few-shot detector finetuning." loading="lazy"><figcaption>A VLM proposes descriptive terms consistent with each class's guideline text and visual examples. Validation selects a prompt for adapting the foundational 2D detector.</figcaption></figure>
+<h3>VLM-guided multi-hypothesis testing (v-MHT)</h3><figure><img src="static/images/vmht.webp" alt="Virtual expert reasoning for instance dimensions and orientation, followed by multi-hypothesis cuboid fitting." loading="lazy"><figcaption>A VLM reasons about the dimension and visible orientation of each detected instance. Multi-hypothesis testing then searches for a cuboid consistent with the associated LiDAR points and 2D detection.</figcaption></figure>
+<h3>Contribution of 3D refinement components</h3><div class="table-scroll"><table><thead><tr><th>Incremental components</th><th>3D mAP ↑</th><th>NDS ↑</th></tr></thead><tbody><tr><td>CM3D + ft-GD</td><td>18.2</td><td>23.1</td></tr><tr><td>+ v-MHT</td><td>21.9</td><td>25.2</td></tr><tr><td>+ class-aware sweep aggregation</td><td>22.8</td><td>25.9</td></tr><tr><td>+ geometry-aided scoring</td><td>23.6</td><td>26.4</td></tr><tr class="ours"><td>auto3D: + tracking refinement</td><td>25.4</td><td>27.2</td></tr></tbody></table></div><p class="note">AutoExpert-nuScenes ablation, following the paper. v-MHT reaches 21.9 mAP; the full auto3D system reaches 25.4 mAP after the additional refinements.</p>
+</section>
+<section id="results"><h2>Results reported in the paper</h2><p>3D mAP averages AP at ground-plane center-distance thresholds of 0.5, 1.0, 2.0, and 4.0 meters. Scores below are on a 0–100 scale. <strong>ft-GD</strong> denotes GroundingDINO finetuned with refined class names and few-shot guideline examples.</p>
+<h3>AutoExpert-nuScenes · 18 classes</h3><div class="table-scroll"><table><thead><tr><th>Method</th><th>3D mAP ↑</th><th>NDS ↑</th></tr></thead><tbody><tr><td>Oyster</td><td>6.3</td><td>10.7</td></tr><tr><td>LISO</td><td>8.9</td><td>13.1</td></tr><tr><td>UNION</td><td>9.7</td><td>13.8</td></tr><tr><td>CPD</td><td>10.1</td><td>14.2</td></tr><tr><td>Find&amp;Prop</td><td>11.3</td><td>16.0</td></tr><tr><td>OpenSight</td><td>11.8</td><td>16.4</td></tr><tr><td>OpenBox</td><td>10.6</td><td>15.5</td></tr><tr><td>AnnofreeOD</td><td>11.7</td><td>16.2</td></tr><tr><td>CM3D</td><td>12.1</td><td>16.6</td></tr><tr><td>CM3D + ft-GD</td><td>18.2</td><td>23.1</td></tr><tr class="ours"><td>auto3D (ours)</td><td>25.4</td><td>27.2</td></tr></tbody></table></div>
+<h3>AutoExpert-PandaSet · our corrected annotations, 25 classes</h3><div class="table-scroll"><table><thead><tr><th>Method</th><th>3D mAP ↑</th><th>Adapted NDS ↑</th></tr></thead><tbody><tr><td>OpenBox</td><td>10.9</td><td>15.0</td></tr><tr><td>OpenBox + ft-GD</td><td>15.9</td><td>18.9</td></tr><tr><td>AnnofreeOD</td><td>11.5</td><td>15.4</td></tr><tr><td>AnnofreeOD + ft-GD</td><td>16.1</td><td>19.3</td></tr><tr><td>CM3D</td><td>12.3</td><td>16.0</td></tr><tr><td>CM3D + ft-GD</td><td>16.6</td><td>19.7</td></tr><tr class="ours"><td>auto3D (ours)</td><td>18.4</td><td>27.6</td></tr></tbody></table></div>
+<p class="note">PandaSet NDS is adapted to use translation, scale, and orientation errors, excluding velocity and attribute errors. NDS values should be interpreted within each dataset's evaluation protocol. The complete paper includes additional enhanced baseline variants.</p>
+<h3>Qualitative results</h3><figure><img src="static/images/visual-results.webp" alt="Four AutoExpert-nuScenes examples showing auto3D detections in RGB images and LiDAR bird's-eye views." loading="lazy"><figcaption>2D detections and generated 3D cuboids on four AutoExpert-nuScenes testing examples, visualized in RGB views and LiDAR bird's-eye views.</figcaption></figure>
+</section>
+<section id="challenge"><h2>CVPR 2026 Workshop Challenge</h2><p>The <a href="https://huggingface.co/spaces/autoexpert-cvpr2026-workshop/auto3D">Automated 3D Cuboid Annotation on LiDAR Data challenge</a> evaluates AutoExpert-PandaSet using our corrected annotations and ranks entries by NDS. Challenge submissions are separate from the paper's baseline comparisons.</p>
+<p>The October 20, 2026 leaderboard snapshot ranks <strong>iMerit first</strong>, with <strong>23.24 mAP / 29.36 NDS</strong>. The organizer entry, listed as <strong>AnnoExpert</strong>, scores 18.36 mAP / 27.61 NDS; these round to the paper's auto3D PandaSet result of 18.4 / 27.6.</p><p class="note">The challenge server displays scores on a 0–1 scale; this page uses 0–100. Visit the live leaderboard for current standings and submission instructions.</p>
+<a class="button" href="https://huggingface.co/spaces/autoexpert-cvpr2026-workshop/auto3D">Open challenge and leaderboard ↗</a>
+</section>
+<section id="resources"><h2>Code and data</h2><div class="resources"><div><h3>AutoExpert-nuScenes</h3><p>The <a href="https://github.com/cc50121/AutoExpert-3D-benchmark#data-and-released-artifacts">repository resource list</a> provides few-shot examples, validation data, finetuned GroundingDINO weights, and saved predictions for the nuScenes workflow.</p><p class="note">The repository documents the released scripts and their current coverage; resource availability alone does not establish reproduction of the complete final method.</p></div><div><h3>AutoExpert-PandaSet</h3><ul><li><a href="https://huggingface.co/datasets/autoexpert-cvpr2026-workshop/dataset-public">Guideline examples, validation annotations, and test inputs</a></li><li><a href="https://huggingface.co/datasets/autoexpert-cvpr2026-workshop/seq">LiDAR sequences and sensor data</a></li><li><a href="https://huggingface.co/spaces/autoexpert-cvpr2026-workshop/auto3D">Evaluation server and submission format</a></li></ul><p class="note">Consult the dataset card for the current release status and licensing.</p></div></div></section>
+<section id="citation"><h2>Citation</h2><pre><code>@inproceedings{ma2026autoexpert,
+  title = {{AutoExpert}: Automating 3D {LiDAR} Annotation from Expert-Crafted Guidelines},
+  author = {Ma, Yechi and Hua, Wei and Kong, Shu},
+  booktitle = {Advances in Neural Information Processing Systems},
+  year = {2026},
+  url = {https://arxiv.org/abs/2506.02914}
+}</code></pre></section>
+</main>
+<footer>AutoExpert · NeurIPS 2026 · Content aligned with <a href="https://arxiv.org/abs/2506.02914v5">arXiv v5</a> (October 22, 2026). <a href="https://github.com/cc50121/AutoExpert-3D-benchmark">GitHub repository</a></footer>
+</body></html>
